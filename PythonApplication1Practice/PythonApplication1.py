@@ -1,3 +1,4 @@
+## https://wiki.python.org/moin/SimplePrograms
 
 print ('Hello, world!')
 
@@ -5,5 +6,38 @@ name = input('What is your name?\n')
 print('Hi, %s.' % name)
 
 friends = ['traci', 'maggie', 'gary', 'michael', format.__name__]
-for i, name in enumerate(friends):
-    print("iteration {iteration} is {name}".format(Iteration=i, name=name))
+
+
+def enumFriends(friends):
+    for i, name in enumerate(friends):
+        print("iteration {iteration} is {name}".format(iteration=i, name=name))
+
+enumFriends(friends)
+
+parents, babies = (1, 1)
+while babies < 100:
+    print("This generation has {0} babies".format(babies))
+    parents, babies = (babies, parents + babies)
+
+def greet(name):
+    print ('Hello', name)
+greet('Jack')
+greet('Jill')
+greet('Bob')
+greet(name)
+greet(enumFriends(friends))
+
+## 6 lines: Import, regular expressions
+import re
+for test_string in ['555-1212', 'ILL-EGAL']:
+    if re.match(r'^\d{3}-\d{4}$', test_string):
+        print(test_string, 'is a valid US local phone number')
+    else:
+        print(test_string, 'rejected')
+
+## 7 lines: Dictionaries, generator expressions
+prices = {'apple': 0.40, 'banana': 0.50}
+my_purchases = { 'apple': 1, 'banana': 6}
+grocery_bill = sum(prices[fruit] * my_purchases[fruit]
+                   for fruit in my_purchases)
+print('I owe the grocer $%.2f' % grocery_bill)
